@@ -7,7 +7,13 @@
 	{
 		return power;
 	}
-	int Gun::getgunNum()
+	void Gun::setNPA() {
+		this->NPA += 1;
+	}
+	void Gun::useNPA() {
+		this->NPA -= 1;
+	}
+	int Gun::getNPA()
 	{
-		return gunNum;
+		return NPA;
 	}

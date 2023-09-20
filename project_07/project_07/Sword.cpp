@@ -1,6 +1,5 @@
 #include "Sword.h"
 
-
 	void Sword::attack() {
 		cout << "Âî¸£±â!" << endl;
 	}
@@ -8,15 +7,21 @@
 	{
 		return power;
 	}
-	int Sword::getswordNum()
+	void Sword::setNPA() {
+		this->NPA += 3;
+	}
+	void Sword::useNPA() {
+		this->NPA -= 1;
+	}
+	int Sword::getNPA()
 	{
-		return swordNum;
+		return NPA;
 	}
 	int Sword::howmany() {
-		if (getswordNum() % 3 == 0) {
-			return getswordNum() / 3;
+		if (getNPA() % 3 == 0) {
+			return getNPA() / 3;
 		}
 		else {
-			return getswordNum() / 3 + 1;
+			return getNPA() / 3 + 1;
 		}
 	}

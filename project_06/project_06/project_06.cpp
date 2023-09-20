@@ -4,19 +4,19 @@
 
 using namespace std;
 
-class Calculator {
+class Calculator { // 연산 클래스
 protected :
-	double x = result;
+	double x = result; // x값에 정적 변수 대입
 	double y = 0;
-	static double result;
+	static double result; // static 필드
 public:
-	explicit Calculator(double i) : y(i) {}
-	Calculator(double i, double j) : x(i), y(j) {}
-	virtual double math() {
+	explicit Calculator(double i) : y(i) {} // case) Y일때 예외 생성자
+	Calculator(double i, double j) : x(i), y(j) {} // 생성자
+	virtual double math() { // 가상함수
 		return 0;
 	}
 };
-class Add : public Calculator {
+class Add : public Calculator { // 덧셈 클래스
 public :
 	Add(double i, double j) : Calculator(i,j) {}
 	explicit Add(double i) : Calculator(i) {}
@@ -25,7 +25,7 @@ public :
 		return result = x + y;
 	}
 };
-class Sub : public Calculator {
+class Sub : public Calculator { // 뺄셈 클래스
 public:
 	Sub(double i, double j) : Calculator(i, j) {}
 	explicit Sub(double i) : Calculator(i) {}
@@ -34,7 +34,7 @@ public:
 		return result = x - y;
 	}
 };
-class Product : public Calculator {
+class Product : public Calculator { // 곱셈 클래스
 public:
 	Product(double i, double j) : Calculator(i, j) {}
 	explicit Product(double i) : Calculator(i) {}
@@ -43,7 +43,7 @@ public:
 		return result = x * y;
 	}
 };
-class Divided : public Calculator {
+class Divided : public Calculator { // 나눗셈 클래스
 public:
 	Divided(double i, double j) : Calculator(i, j) {}
 	explicit Divided(double i) : Calculator(i) {}
@@ -56,11 +56,13 @@ public:
 double Calculator::result = 0; // 정적 변수 초기화
 
 int main() {
+	//변수 정의
 	double a = 0, b = 0;
 	string element = "";
 	string input = "";
 	cout << " +-*/ 사칙연산 계산기 /*-+ " << endl << endl;
 
+	// 사칙 연산 while문
 	while (1) {
 		if (input != "Y") {
 			cout << "숫자를 입력해주세요 : ";
@@ -100,13 +102,13 @@ int main() {
 		cout << "---------------------------------------" << endl;
 		cout << "Y : 계속, AC : 초기화, EXIT : 종료   ";
 		cin >> input;
-		if (input == "EXIT") {
-			break;
+		if (input == "EXIT") { // EXIT일때 if문
+			break; // 루프 탈출
 		}
-		else if (input == "AC") {
+		else if (input == "AC") { // AC일때 if문
 			continue;
 		}
-		else if (input == "Y") {
+		else if (input == "Y") { // Y일때 if문
 	
 			cout << "연산자를 입력해주세요 : ";
 			cin >> element;
