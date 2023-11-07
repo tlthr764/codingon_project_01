@@ -22,11 +22,28 @@ int main() {
 	//유저 변수 정의
 	vector<int> user(3,0);
 	vector<bool> u_check(10,false);
+	
 	//컴퓨터 변수 정의
 	vector<int> com(3, 0);
 	vector<bool> c_check(10, false);
 	mt19937_64 random_num(time(nullptr));
 	uniform_int_distribution<__int64> com_num(1, 9);
+
+	c_check.clear();
+	c_check.resize(10);
+	com.clear();
+	com.resize(3);//컴퓨터 벡터 초기화
+
+	// 컴퓨터 난수 생성
+	int cc = 0;
+	for (int i = 0; i < 3; i++) {
+		do {
+			cc = com_num(random_num);
+		} while (c_check[cc] == true);
+		com[i] = cc;
+		c_check[cc] = true;
+	}
+
 	// 루프 관련 변수 정의
 	bool f_loop = true; //전체 루프 탈출 변수
 	bool f_check = true;//입력 루프 탈출 변수
@@ -78,26 +95,7 @@ int main() {
 
 		// 중복과 범위 필터링 조건문
 		if (f_loop == true && f_check == false) {
-			c_check.clear();
-			c_check.resize(10);
-			com.clear();
-			com.resize(3);//벡터 초기화
-
-			// 컴퓨터 난수 생성
-			int cc = 0;
-			for (int i = 0; i < 3; i++) {
-				do {
-					cc = com_num(random_num);
-				} while (c_check[cc] == true);
-				com[i]=cc;
-				c_check[cc] = true;
-			}
-			// 컴퓨터 숫자 출력
-			for (int i = 0; i < 3; i++) {
-				cout << com[i] << setw(2);
-			}
-			cout << "  <------------- Target" << endl;
-
+			
 			// 스트라이크 볼 판별 다중 for문
 			int strike = 0;
 			int ball = 0;

@@ -89,7 +89,7 @@ int main() {
 	// 마방진 출력
 	for (int i = 0; i < num; i++) {
 		for (int j = 0; j < num; j++) {
-			cout << setw(3) << arr[i][j];
+			cout << setw(4) << arr[i][j];
 		}
 		cout << endl;
 	}

@@ -30,7 +30,7 @@ int main() {
 				user_check[user_num] = 1;//사용자 벡터에 숫자 입력
 				i++;
 			}
-			else if (user_check[user_num] == 1) {
+			else if ((user_num > 0 && user_num < 26) && user_check[user_num] == 1) {
 				cout << "중복된 숫자입니다! 새로운 숫자를 입력해주세요." << endl;
 			}
 			else  {
